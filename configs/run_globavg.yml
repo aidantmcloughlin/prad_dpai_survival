@@ -1,0 +1,42 @@
+General:
+  comment: vecInputSurvglobavg
+  seed: 2021
+  epochs: 100
+  grad_acc: 2
+  frozen_bn: false
+  patience: 100
+  server: train
+Loss:
+  loss_name: NLLSurvLoss
+  alpha_surv: 0.4
+Data:
+  dataset_name: globavg_data
+  parent_dir: /home/data/tcga_prad/
+  wsifeat_dir: histo_model_preproc/1024_40/UNI/globavgs
+  clin_file: tabular_data/clindata/tcga_prad_clin_imputed.csv
+  omics_file: tabular_data/genomicdata/rnaseq_in_pways_tpm.csv
+  label_dir: tabular_data/cross_val_tables/seed99999/batchiso
+  log_path: logs/globavg_batchiso_dseed99999_patchsize1024_encoderUNI_noclin_alpha0.4_lr0.001
+  max_slides: 1
+  train_dataloader:
+    batch_size: 24
+    num_workers: 4
+  test_dataloader:
+    batch_size: 24
+    num_workers: 4
+ModelInfo:
+  name: vecInputSurv
+  params:
+    clin_vars: []
+    wsi_hidden_sizes:
+    - 128
+    - 64
+    concat_hidden_sizes:
+    - 16
+    - 8
+    n_classes: 4
+  n_classes: 4
+Optimizer:
+  opt: adam
+  lr: 0.001
+  weight_decay: 1.0e-05

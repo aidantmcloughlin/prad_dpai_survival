@@ -1,0 +1,44 @@
+General:
+  comment: CMTAGleason
+  seed: 2021
+  grad_acc: 16
+  epochs: 20
+  frozen_bn: false
+  patience: 20
+  server: train
+Loss:
+  loss_name: CMTALoss
+  alpha_surv: 0.4
+  l1sim_alpha: 1
+Data:
+  dataset_name: pathway_data
+  parent_dir: /home/data/tcga_prad/
+  wsifeat_dir: histo_model_preproc/1024_40/UNI/_2_features/pt_files
+  clin_file: tabular_data/clindata/tcga_prad_clin_imputed.csv
+  label_dir: tabular_data/cross_val_tables/seed99999/batchstrat
+  pways_file: tabular_data/genomicdata/pathways/hallmark_pathways_wprad.csv
+  omics_file: tabular_data/genomicdata/rnaseq_in_pways_tpm.csv
+  log_path: logs/CMTAGleasonconcat_L1SimPen1_PwayHmarkprad_RnaTpm_batchstrat_dseed99999_patchsize1024_encoderUNI_noclin_alpha0.4_lr5e-05
+  max_slides: 1
+  train_dataloader:
+    batch_size: 1
+    num_workers: 1
+  test_dataloader:
+    batch_size: 1
+    num_workers: 1
+ModelInfo:
+  name: CMTAGleason
+  params:
+    wsi_hidden_sizes: null
+    concat_hidden_sizes:
+    - 16
+    - 8
+    fusion: concat
+    n_classes: 4
+    dropout: false
+    clin_vars: []
+  n_classes: 4
+Optimizer:
+  opt: adam
+  lr: 5.0e-05
+  weight_decay: 0.01

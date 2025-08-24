@@ -1,0 +1,9 @@
+ALL_DATA_PAR_DIR: /home/prad_dpai_survival/data
+DATA_PAR_DIR: /home/prad_dpai_survival/data/tcga_prad
+EMBED_ROOT_DIR: /home/prad_dpai_survival/data/tcga_prad/histo_model_preproc
+GIT_ROOT: /home/prad_dpai_survival
+LABEL_ROOT_DIR: /home/prad_dpai_survival/data/tcga_prad/tabular_data/cross_val_tables
+METADATA_PAR_DIR: /home/prad_dpai_survival/data/tcga_prad/tabular_data/metadata
+PROJ_REL_LOC: ''
+SLIDES_DIR: /home/prad_dpai_survival/data/tcga_prad/wsi_files
+UNI_CKPT_DIR: /home/prad_dpai_survival/data/pretrained_models/uni/checkpointzip
